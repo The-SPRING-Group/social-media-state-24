@@ -1,0 +1,40 @@
+---
+title: "Social Media and Children in the US"
+format: html
+editor: visual
+---
+
+```{r}
+#| label: add-library
+library(tidyverse)
+```
+
+
+First, let's read in our data on social media use in the US.
+
+```{r}
+#| label: data-read-in
+state_24 <- read_csv("data/state-sm-24") 
+state_24
+```
+
+Let's clean up our data into factors for states and status
+
+```{r}
+#| label: data-clean
+
+state_24 <- state_24 |> 
+  mutate(
+    jurisdiction = as_factor(jurisdiction),
+    status = as_factor(status)
+  )
+state_24 |> 
+  distinct(jurisdiction) |> 
+  pull(jurisdiction)
+
+state_24 |> 
+  distinct(status) |> 
+  pull(status)
+```
+In total, there are 
+The `echo: false` option disables the printing of code (only output is displayed).

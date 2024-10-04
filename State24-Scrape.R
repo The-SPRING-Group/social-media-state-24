@@ -36,6 +36,10 @@ data_raw <- tibble(
 
 
 state_data <- data_raw |> 
+  mutate(
+    jurisdiction = as_factor(jurisdiction),
+    status = as_factor(status)
+  ) |> 
   filter(
     jurisdiction != c("Guam", "N. Mariana Islands", "Puerto Rico", "A. Samoa", "U.S. Virgin Islands", "District of Columbia")
   ) |> 
