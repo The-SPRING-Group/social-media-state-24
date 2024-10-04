@@ -1,0 +1,43 @@
+library(tidyverse)
+library(rvest)
+library(polite)
+
+# read in data
+page <- read_html("https://www.ncsl.org/technology-and-communication/social-media-and-children-2024-legislation")
+
+jurisdictions <- page |> 
+  html_elements("td:nth-child(1)") |> 
+  html_text()
+
+bill_numbers <- page |> 
+  html_elements("td:nth-child(2)") |> 
+  html_text()
+
+titles <- page |> 
+  html_elements("td:nth-child(3)") |> 
+  html_text()
+
+statuss <- page |> 
+  html_elements("td:nth-child(4)") |> 
+  html_text()
+
+summarys <- page |> 
+  html_elements("td:nth-child(5)") |> 
+  html_text()
+
+data_raw <- tibble(
+  jurisdiction = jurisdictions,
+  number = bill_numbers,
+  title = titles,
+  status = statuss,
+  summary = summarys
+)
+
+
+
+state_data <- data_raw |> 
+  filter(
+    jurisdiction != c("Guam", "N. Mariana Islands", "Puerto Rico", "A. Samoa", "U.S. Virgin Islands", "District of Columbia")
+  ) |> 
+  write_csv("data/state-sm-24")
+  
