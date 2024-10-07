@@ -1,9 +1,4 @@
-library(tidyverse)
-library(rvest)
-library(polite)
-
-# read in data
-page <- read_html("https://www.ncsl.org/technology-and-communication/social-media-and-children-2024-legislation")
+page <- read_html("https://www.ncsl.org/technology-and-communication/social-media-and-children-2023-legislation")
 
 jurisdictions <- page |> 
   html_elements("td:nth-child(1)") |> 
@@ -45,4 +40,3 @@ state_data <- data_raw |>
     jurisdiction %!in% c("Guam", "N. Mariana Islands", "Puerto Rico", "A. Samoa", "U.S. Virgin Islands", "District of Columbia")
   ) |> 
   write_csv("data/state-sm-23")
-  
