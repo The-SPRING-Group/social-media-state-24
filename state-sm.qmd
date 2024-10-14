@@ -2,6 +2,8 @@
 title: "Social Media and Children in the US"
 format: html
 editor: visual
+execute: 
+  echo: false
 ---
 
 ```{r}
@@ -49,8 +51,12 @@ In total, there are 50 states and 7 different values.
 
 ```{r}
 #| label: legislation-status
-#| echo: false
 state_24 |> 
   count(jurisdiction, sort = "TRUE")
+
+state_24 |> 
+  summarize(
+    state_24, status
+  )
 
 ```
