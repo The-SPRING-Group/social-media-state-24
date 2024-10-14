@@ -44,5 +44,6 @@ state_data <- data_raw |>
   filter(
     jurisdiction %!in% c("Guam", "N. Mariana Islands", "Puerto Rico", "A. Samoa", "U.S. Virgin Islands", "District of Columbia")
   ) |> 
-  write_csv("data/state-sm-23")
-  
+  mutate(status = fct_relevel(status, c(
+    "Failed", "Failed - Adjourned", "Pending", "Vetoed", "To governor", "Adopted", "Pending - Carryover", "Enacted"))) |> 
+  write_csv("data/state-sm-24")
