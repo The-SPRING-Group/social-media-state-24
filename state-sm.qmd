@@ -1,6 +1,7 @@
 ---
-title: "Social Media and Children in the US"
+title: "State Regulation of Social Media and Children in the United States"
 author: "Oliver Huang"
+institute: "SPRING Program on Health and Society"
 format: pdf
 editor: visual
 execute: 
@@ -10,7 +11,7 @@ execute:
 
 # Abstract
 
-Over the past year, political sentiment, has pushed companies to regulate social media use for children in the United State. This article will analyze the 300 bills in US state legislators to understand which states are the biggest regulators of social media.
+Over the past year, political sentiment, has pushed states to regulate social media use for children in the United State. This article will analyze the 300 bills in US state legislators to understand which states are the biggest regulators of social media.
 
 ```{r}
 #| label: add-library
@@ -30,6 +31,7 @@ When analyzing the data, we looked to understand which states introduced the hig
 
 ```{r}
 #| label: data-read-in
+#| output: false
 state_24 <- read_csv("data/state-sm-24") 
 
 state_24 |> 
@@ -51,6 +53,10 @@ state_24 <- state_24 |>
 ```{r}
 #| label: data-clean
 #| output: false
+state_none <- state_24 |> 
+  filter(number != "None",
+         number != "No regular 2024 session")
+
 state_24 <- state_24 |> 
   filter(number != "None",
          number != "No regular 2024 session") |> 
@@ -67,10 +73,10 @@ levels(state_24$status)
 
 ```{r}
 #| label: legislation-status
+#| output: false
 state_count <- state_24 |> 
   count(state, sort = "TRUE") |> 
   write_csv("results/state-count-24.csv")
-state_count
 
 state_passed <- state_24 |> 
   filter(status == "Enacted" ) |> 
@@ -79,14 +85,45 @@ state_passed <- state_24 |>
 state_passed
 
 ```
-
-# Visualizing by State
+We found 42 states had introduced legislation related to social media and children. Out of the 42 states, 19 states ended up passing legislation related to social media and children. At most, states only passed 3 bills related to social media. 
 
 ```{r}
-#| label: count-pass
-plot_usmap(data = state_count, values = "n", color = "green") + 
-  scale_fill_continuous(low = "white", high = "green", name = "Number of States") + 
-  labs(title = "New England Region", subtitle = "Poverty Percentage Estimates for New England Counties in 2014") +
+#| label: bill-reg-vis
+plot_usmap(data = state_count, values = "n", color = "#333333") + 
+  scale_fill_continuous(low = "white", high = "#416555", name = "Number of Bills") + 
+  labs(title = "State's with Bills Regulating Social Media in 2024",
+       subtitle = "States with No Bills have a Gray Fill",
+       caption = "SOURCE: National Conference of State Legislatures. AUTHOR: SPRING Program on Health and Society") +
   theme(legend.position = "right")
-
 ```
+```{r}
+#| label: state-pass-vis
+plot_usmap(data = state_passed, values = "n", color = "#333333") + 
+  scale_fill_continuous(low = "white", high = "#416555", name = "Number of Bills") + 
+  labs(title = "State's that Passed Bills on Social Media",
+       subtitle = "States with No Bills have a Gray Fill",
+       caption = "SOURCE: National Conference of State Legislatures. AUTHOR: SPRING Program on Health and Society") +
+  theme(legend.position = "right")
+```
+
+## Partisan Breakdown
+The states that have introduced the most legislation are large Democrat or swing states, including New York, California, Illinois, New Jersey, and Virginia.
+
+```{r}
+#| label: print-most-bills
+head(state_count, n = 10)
+```
+
+For states that passed legislation, the amount of states is relatively mixed, with Republican state governors and legislatures, such as Utah, and Democrat state governors and legislatures, such as Minesota, passing bills related to social media regulation. However, only five of the 19 states, Colorado, Maryland, Virginia, Kentucky, Minesota that have passed legislaton regarding children and social media have democrats controlling either one of the two houses of government or the governor's seat.
+
+```{r}
+#| label: print-most-bills-passed
+head(state_passed, n = 20)
+```
+
+
+# Discussion
+
+
+
+
