@@ -1,7 +1,13 @@
 ---
 title: "State Regulation of Social Media and Children in the United States"
-author: "Oliver Huang"
-institute: "SPRING Program on Health and Society"
+author:
+  - name: Oliver Huang
+    affiliations:
+      - SPRING Program on Health and Society
+      - Duke University
+  - name: Khadija Mohammad
+    affiliations:
+      - SPRING Program on Health and Society
 format: pdf
 editor: visual
 execute: 
@@ -124,6 +130,10 @@ head(state_passed, n = 20)
 
 # Discussion
 
+An interesting result is that while Democratic states were some of the states that introduced the most bills, Republican run states enacted the most legislation. An explanation for this is that while Democrats are more inclined to regulate the technology industry, there is a heavy technology lobbying presence in the state, making it harder to pass bills. Both New York and California are known for their technology industry, whose presence may lead to more lobbying in the states against bills.
 
+With the exception of Florida, most states that have passsed legislation regulating social media have medium to low populations. This suggests two possibilities: large states may have larger state legislators, which leads to more deliberation by legislators. Technology companies may also be more inclined to intensly lobby in states with large populations, stalling the passage of social media legislation.
 
+# Conclusion
 
+While the election of Donald Trump means legislation such as the Kids Online Safety Act (KOSA) and COPPA 2.0 may have a perilous future, state governments may continue to push for bills to regulate social media. This however may make it hard for technology companies to operate platforms. A state by state system of technology regulation could lead to fragmented laws, creating a complex web of rules for any technology company to operate in. Federal regulation may prove to be more effective at both creating safer social media platforms, alongside offering a more streamlined system for child safrety and wellbeing online. 
