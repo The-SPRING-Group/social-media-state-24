@@ -1,6 +1,6 @@
 ---
 title: "Social Media and Children in the US"
-format: html
+format: pdf
 editor: visual
 execute: 
   echo: false
@@ -9,6 +9,7 @@ execute:
 ```{r}
 #| label: add-library
 library(tidyverse)
+library(usmap)
 ```
 
 First, let's read in our data on social media use in the US.
@@ -36,6 +37,7 @@ state_24 <- state_24 |>
     jurisdiction = as_factor(jurisdiction),
     status = as_factor(status)
   )
+
 state_24 |> 
   distinct(jurisdiction) |> 
   pull(jurisdiction)
@@ -51,12 +53,31 @@ In total, there are 50 states and 7 different values.
 
 ```{r}
 #| label: legislation-status
-state_24 |> 
-  count(jurisdiction, sort = "TRUE")
+state_24 
 
-state_24 |> 
-  summarize(
-    state_24, status
-  )
+state_24 <- state_24 |> 
+  filter(number != "None",
+         number != "No regular 2024 session") |> 
+  rename(state = jurisdiction)
+
+state_count <- state_24 |> 
+  count(state, sort = "TRUE") |> 
+  write_csv("results/state-count-24.csv")
+state_count
+
+state_passed <- state_24 |> 
+  filter(status == "Enacted" ) |> 
+  count(state, sort = "TRUE") |> 
+  write_csv("results/state-passed.csv")
+state_passed
+
+```
+
+```{r}
+#| label: count-pass
+plot_usmap(data = state_count, values = "n", color = "blue") + 
+  scale_fill_continuous(low = "white", high = "blue", name = "Number of States") + 
+  labs(title = "New England Region", subtitle = "Poverty Percentage Estimates for New England Counties in 2014") +
+  theme(legend.position = "right")
 
 ```
