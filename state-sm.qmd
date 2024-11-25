@@ -91,7 +91,7 @@ state_passed <- state_24 |>
 state_passed
 
 ```
-We found 42 states had introduced legislation related to social media and children. Out of the 42 states, 19 states ended up passing legislation related to social media and children. At most, states only passed 3 bills related to social media. 
+We found 42 states had introduced legislation related to social media and children. 
 
 ```{r}
 #| label: bill-reg-vis
@@ -99,16 +99,18 @@ plot_usmap(data = state_count, values = "n", color = "#333333") +
   scale_fill_continuous(low = "white", high = "#416555", name = "Number of Bills") + 
   labs(title = "State's with Bills Regulating Social Media in 2024",
        subtitle = "States with No Bills have a Gray Fill",
-       caption = "SOURCE: National Conference of State Legislatures. AUTHOR: SPRING Program on Health and Society") +
+       caption = "SOURCE: National Conference of State Legislatures") +
   theme(legend.position = "right")
 ```
+Out of the 42 states, 19 states ended up passing legislation related to social media and children. At most, states only passed 3 bills related to social media.
+
 ```{r}
 #| label: state-pass-vis
 plot_usmap(data = state_passed, values = "n", color = "#333333") + 
   scale_fill_continuous(low = "white", high = "#416555", name = "Number of Bills") + 
   labs(title = "State's that Passed Bills on Social Media",
        subtitle = "States with No Bills have a Gray Fill",
-       caption = "SOURCE: National Conference of State Legislatures. AUTHOR: SPRING Program on Health and Society") +
+       caption = "SOURCE: National Conference of State Legislatures") +
   theme(legend.position = "right")
 ```
 
