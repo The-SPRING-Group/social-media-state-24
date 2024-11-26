@@ -1,43 +1,43 @@
-state,n
-New York,30
-California,22
-Illinois,20
-New Jersey,20
-Virginia,14
-Minnesota,11
-Pennsylvania,11
-West Virginia,11
-Florida,10
-Indiana,10
-Maryland,10
-Missouri,10
-Arizona,9
-Oklahoma,9
-Tennessee,9
-Georgia,8
-Kentucky,7
-Mississippi,7
-Iowa,6
-Massachusetts,6
-Ohio,6
-South Carolina,5
-Utah,5
-Hawaii,4
-Idaho,4
-Vermont,4
-Wisconsin,4
-Alabama,3
-Colorado,3
-Louisiana,3
-Alaska,2
-Kansas,2
-Michigan,2
-New Mexico,2
-North Carolina,2
-Washington,2
-Wyoming,2
-Delaware,1
-Nebraska,1
-New Hampshire,1
-Rhode Island,1
-South Dakota,1
+state,n,Leg_Control
+New York,30,Dem
+California,22,Dem
+Illinois,20,Dem
+New Jersey,20,Dem
+Virginia,14,Dem
+Minnesota,11,Divided
+Pennsylvania,11,Divided
+West Virginia,11,Rep
+Florida,10,Rep
+Indiana,10,Rep
+Maryland,10,Dem
+Missouri,10,Rep
+Arizona,9,Rep
+Oklahoma,9,Rep
+Tennessee,9,Rep
+Georgia,8,Rep
+Kentucky,7,Rep
+Mississippi,7,Rep
+Iowa,6,Rep
+Massachusetts,6,Dem
+Ohio,6,Rep
+South Carolina,5,Rep
+Utah,5,Rep
+Hawaii,4,Dem
+Idaho,4,Rep
+Vermont,4,Divided
+Wisconsin,4,Rep
+Alabama,3,Rep
+Colorado,3,Dem
+Louisiana,3,Rep
+Alaska,2,Rep
+Kansas,2,Rep
+Michigan,2,Dem
+New Mexico,2,Dem
+North Carolina,2,Rep
+Washington,2,Dem
+Wyoming,2,Rep
+Delaware,1,Dem
+Nebraska,1,Unicameral
+New Hampshire,1,Rep
+Rhode Island,1,Dem
+South Dakota,1,Rep

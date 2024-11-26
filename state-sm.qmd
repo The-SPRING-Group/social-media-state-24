@@ -38,6 +38,12 @@ When analyzing the data, we looked to understand which states introduced the hig
 ```{r}
 #| label: data-read-in
 #| output: false
+
+state_leg_comp_24 <- read_csv("data/state-leg-comp-24.csv")
+state_leg_comp_24 <- state_leg_comp_24 |> 
+  mutate(STATE = as.factor(STATE)) |> 
+  rename(state = "STATE")
+
 state_24 <- read_csv("data/state-sm-24") 
 
 state_24 |> 
@@ -82,11 +88,16 @@ levels(state_24$status)
 #| output: false
 state_count <- state_24 |> 
   count(state, sort = "TRUE") |> 
+  left_join(state_leg_comp_24) |> 
+  select(state, n, Leg_Control) |> 
   write_csv("results/state-count-24.csv")
+state_count
 
 state_passed <- state_24 |> 
   filter(status == "Enacted" ) |> 
   count(state, sort = "TRUE") |> 
+    left_join(state_leg_comp_24) |> 
+  select(state, n, Leg_Control) |> 
   write_csv("results/state-passed.csv")
 state_passed
 
@@ -122,7 +133,7 @@ The states that have introduced the most legislation are large Democrat or swing
 head(state_count, n = 10)
 ```
 
-For states that passed legislation, the amount of states is relatively mixed, with Republican state governors and legislatures, such as Utah, and Democrat state governors and legislatures, such as Minesota, passing bills related to social media regulation. However, only five of the 19 states, Colorado, Maryland, Virginia, Kentucky, Minesota that have passed legislaton regarding children and social media have democrats controlling either one of the two houses of government or the governor's seat.
+For states that passed legislation, the amount of states is relatively mixed, with Republican state governors and legislatures, such as Utah, and Democrat state governors and legislatures, such as Minesota, passing bills related to social media regulation. However, only four of the 19 states, Colorado, Maryland, Virginia, Kentucky, Minesota that have passed legislaton regarding children and social media have Democrats controlling one house of the legislature.
 
 ```{r}
 #| label: print-most-bills-passed
@@ -134,8 +145,10 @@ head(state_passed, n = 20)
 
 An interesting result is that while Democratic states were some of the states that introduced the most bills, Republican run states enacted the most legislation. An explanation for this is that while Democrats are more inclined to regulate the technology industry, there is a heavy technology lobbying presence in the state, making it harder to pass bills. Both New York and California are known for their technology industry, whose presence may lead to more lobbying in the states against bills.
 
+## Large States and Small States
+
 With the exception of Florida, most states that have passsed legislation regulating social media have medium to low populations. This suggests two possibilities: large states may have larger state legislators, which leads to more deliberation by legislators. Technology companies may also be more inclined to intensly lobby in states with large populations, stalling the passage of social media legislation.
 
-# Conclusion
+## Implications
 
 While the election of Donald Trump means legislation such as the Kids Online Safety Act (KOSA) and COPPA 2.0 may have a perilous future, state governments may continue to push for bills to regulate social media. This however may make it hard for technology companies to operate platforms. A state by state system of technology regulation could lead to fragmented laws, creating a complex web of rules for any technology company to operate in. Federal regulation may prove to be more effective at both creating safer social media platforms, alongside offering a more streamlined system for child safrety and wellbeing online. 
