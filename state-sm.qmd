@@ -18,7 +18,7 @@ bibliography: references.yaml
 
 # Abstract
 
-Over the past year, political sentiment, has pushed states to regulate social media use for children in the United State. This article will analyze the 300 bills in US state legislators to understand which states are the biggest regulators of social media.
+Over the past year, political sentiment has pushed states to regulate social media use for children in the United State. We analyze 300 bills introduced by US state legislators in 2024. We find that while Democratic and Republican controlled legislators both introduced legislation related to social media, Republican controlled state legislators were more likely to enact such regulation.
 
 ```{r}
 #| label: add-library
@@ -35,7 +35,7 @@ We scraped the data from the National Conference of State Legislatures [@socialm
 
 In total, there are 50 states and 9 different statuses for the legislation, including "Enacted", "To governor", "Adopted", "Pending", "Pending - Carryover", "Failed - Adjourned", "Failed", "Vetoed", and " " for NA values. We then cleaned the data to remove all values in the dataset that indicated the state had no legislation related to social media and children.
 
-When analyzing the data, we looked to understand which states introduced the highest number of bills. We also calculated how many bills were passed by state legislatures and in which state. Finally, we read in data from the National Conference of State Legislatures on the of state legislatures and governments that passed bills regulating social media and child welfare. We used this data to understand the political control of the legislatures that introduced and passed legislation regulating social media.
+When analyzing the data, we looked to understand which states introduced the highest number of bills. We also calculated how many bills were passed by state legislatures and in which state. Finally, we read in data from the National Conference of State Legislatures on the partisan control of state legislatures and government. We used this data to understand the political control of the state governments that introduced and enacted legislation regulating social media.
 
 ```{r}
 #| label: data-read-in
@@ -98,14 +98,20 @@ state_count
 state_passed <- state_24 |> 
   filter(status == "Enacted" ) |> 
   count(state, sort = "TRUE") |> 
-    left_join(state_leg_comp_24) |> 
+  left_join(state_leg_comp_24) |> 
   select(state, n, Leg_Control) |> 
   write_csv("results/state-passed.csv")
 state_passed
+```
+
+```{r}
+#| label: state-status
+state_24 |> 
+  count(status)
 
 ```
 
-We found 42 statet had introduced 300 pieces of legislation related to social media and children.
+We found 42 states had introduced 300 pieces of legislation related to social media and children. Out of the 42 states, 19 states ended up enacting a total of 29 pieces of legislation related to social media and children. At most, states only passed 3 bills related to social media.
 
 ```{r}
 #| label: bill-reg-vis
@@ -117,11 +123,10 @@ bill_count_plot <- plot_usmap(data = state_count, values = "n", color = "#333333
   theme(legend.position = "right")
 ```
 
-Out of the 42 states, 19 states ended up passing legislation related to social media and children. At most, states only passed 3 bills related to social media.
-
 ```{r}
 #| label: state-pass-vis
 #| fig-width: 10
+
 bill_pass_plot <- plot_usmap(data = state_passed, values = "n", color = "#333333") + 
   scale_fill_continuous(low = "white", high = "#416555", name = "Number of Bills") + 
   labs(title = "State's that Passed Bills on Social Media",
@@ -212,20 +217,24 @@ An explanation for this is that while Democrats are more inclined to regulate th
 
 ## Large States and Small States
 
-With the exception of Florida, most states that have passed legislation regulating social media have medium to low populations. This suggests two possibilities: large states may have larger state legislators, which leads to more deliberation by legislators. Technology companies may also be more inclined to intensely lobby in states with large populations, stalling the passage of social media legislation.
+With the exception of Florida, most states that have passed legislation regulating social media have medium to low populations. This suggests two possibilities. First, large states may have larger state legislators, which leads to more deliberation, halting the passage of legislation. Second, technology companies may also be more inclined to intensely lobby in states with large populations. A larger state means a larger user base will be affected by new regulations. As a result, companies may put more effort into stalling the passage of social media legislation in larger states.
 
 ## Implications
 
-The 2024 election flipped the senate and presidency from Democrat to Republican, creating a trifecta in the federal government. This means legislation such as the Kids Online Safety Act (KOSA) and COPPA 2.0 may have a perilous future on the federal level. On one hand, Republicans such as Mike Johnson have indicated opposition to KOSA [@johnson]. but Trump appointees, such as incoming surgeon general have called for banning social media [@napier2024]. It remains unclear how policymakers may proceed with social media regulation on a federal level.
+The 2024 election flipped the Senate and Presidency from Democrat to Republican, creating a trifecta in the federal government. This means legislation such as the Kids Online Safety Act (KOSA) and COPPA 2.0 may have a perilous future on the federal level. On one hand, Republicans such as Mike Johnson have indicated opposition to KOSA [@johnson]. On the other hand, Trump appointees, such as incoming surgeon general, have called for banning social media [@napier2024]. It remains unclear how policymakers may proceed with social media regulation on a federal level.
 
 State governments may continue to push for bills to regulate social media. This however may make it hard for technology companies to operate platforms. A state by state system of technology regulation could lead to fragmented laws, creating a complex web of rules for any technology company to operate in.
 
 ## Drawbacks and Areas for Future Analysis
 
-The analysis only includes data from the beginning of 2024 through October 2024. Since the beginning of October, states may have passed new legislation changing the status of these legislation. Further, states have passed before 2024. A future area of inquiry may consider the trends in state legislation of children and social media over the past few years.
+The analysis only includes data from the beginning of 2024 through October 2024. Since the beginning of October, states may have passed new legislation changing the status of these legislation. Further, states have passed legislation before 2024. A future area of inquiry may consider the trends in state legislation of children and social media over the past few years.
 
 The data set only analyzed the partisan control of state legislators, not the individual political affiliations of those sponsoring each bill. Future analysis in the political affiliations of those sponsoring the bills may provide better insight into the relationship between partisanship and sponsoring of child safety legislation.
 
 # Conclusion
 
-Federal regulation may prove to be more effective at both creating safer social media platforms, alongside offering a more streamlined system for child safety and wellness online. However, given the unknown state of KOSA and other legislation, state governments may prove to be the only alternative.
+Federal regulation may prove to be more effective at both creating safer social media platforms, alongside offering a more streamlined system for child safety and wellness online. However, given the unknown stance of the incoming Republican-controlled federal government on social media regulation, state governments may be the only venue for social media regulation.
+
+{{< pagebreak >}}
+
+# Citations
