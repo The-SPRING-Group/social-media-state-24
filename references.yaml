@@ -1,0 +1,33 @@
+---
+references:
+- id: johnson
+  accessed: "03:04:17"
+  key: QPLRRZJF
+  libraryID: 1
+  providerKey: Zotero
+  title: Johnson calls Kids Online Safety Act "very problematic"
+  type: webpage
+  URL: "https://thehill.com/policy/technology/4932971-johnson-calls-kids-online-safety-act-very-problematic/"
+- id: napier2024
+  accessed: "03:06:03"
+  author:
+  - family: Napier
+    given: Andi Shae
+  issued: 2024-11-26
+  key: ATWYJG9X
+  language: en-US
+  libraryID: 1
+  providerKey: Zotero
+  title: Trump's surgeon general pick called for banning social media
+    for teens - Washington Examiner
+  type: post-weblog
+  URL: "https://www.washingtonexaminer.com/policy/technology/3242191/trump-surgeon-general-pick-called-ban-social-media-teenagers/"
+- id: socialm
+  accessDate: 2024-10-03
+  key: SQE6DIBH
+  libraryID: 1
+  providerKey: Zotero
+  title: Social Media and Children 2024 Legislation
+  type: dataset
+  url: "https://www.ncsl.org/technology-and-communication/social-media-and-children-2024-legislation"
+...
