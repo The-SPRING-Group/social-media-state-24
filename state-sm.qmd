@@ -8,6 +8,10 @@ author:
   - name: Khadija Mohammad
     affiliations:
       - SPRING Program on Health and Society
+  - name: Arik Karim
+    affiliations:
+      - SPRING Program on Health and Society
+      - The George Washington University
 format: pdf
 editor: visual
 execute: 
@@ -18,7 +22,7 @@ bibliography: references.yaml
 
 # Abstract
 
-Over the past year, political sentiment has pushed states to regulate social media use for children in the United State. We analyze 300 bills introduced by US state legislators in 2024. We find that while Democratic and Republican controlled legislators both introduced legislation related to social media, Republican controlled state legislators were more likely to enact such regulation.
+Over the past year, political sentiment has pushed states to regulate social media use for children in the United State. We analyze 300 bills introduced by US state legislators in 2024. We find that while Democratic- and Republican-controlled legislators both introduced legislation related to social media, Republican-controlled state legislatures were more likely to enact such regulation.
 
 ```{r}
 #| label: add-library
@@ -145,7 +149,7 @@ plot_usmap(data = state_passed, values = "n", color = "#333333") +
 
 ## Partisan Breakdown
 
-Overall, 14 of the state legislatures are democrat controlled, 25 are republican controlled, and 3 are divided. This suggests that interest in social media regulation is relatively bipartisan across party lines.
+Overall, 14 of the state legislatures are Democrat-controlled, 25 are Republican-controlled, and 3 are divided. This suggests that interest in social media regulation is relatively bipartisan across party lines.
 
 ```{r}
 #| label: state-count-party
@@ -173,7 +177,7 @@ head(state_count, n = 10) |>
   kable()
 ```
 
-For states that passed legislation, the partisan control of state legislatures is mixed, with Republican controlled legislatures, such as Utah, and Democrat controlled legislatures, such as Maryland, passing bills related to social media regulation. However, only four of the 19 states, Colorado, Maryland, Virginia, Kentucky, Minnesota that have passed legislation regarding children and social media have Democrats controlling at least one house of the state legislature.
+For states that passed legislation, the partisan control of state legislatures is mixed, with Republican controlled legislatures, such as Utah, and Democrat controlled legislatures, such as Maryland, passing bills related to social media regulation. However, only five of the 19 states that have passed legislation regarding children and social media--Colorado, Maryland, Virginia, Kentucky, and Minnesota--have Democrats controlling at least one house of the state legislature.
 
 ```{r}
 #| label: print-most-bills-passed
@@ -189,9 +193,9 @@ sp_count <- state_passed |>
 
 # Discussion
 
-Overall, its clear that regardless of partisan affiliation, Democrats and Republican state legislatures seem equally interested in introducing legislation regarding social media and children.
+Overall, it is clear that regardless of partisan affiliation, Democrat- and Republican-controlled state legislatures seem equally interested in introducing legislation regarding social media and children.
 
-An interesting result is that while Democratic states were some of the states that introduced the most bills, a higher proportion of Republican controlled state legislatures passed bills.
+It is worth noting that while Democratic states introduced the most bills en masse, a higher proportion of Republican-controlled state legislatures passed bills.
 
 ```{r}
 #| label: fig-prop-graph-partisan-leg
@@ -226,7 +230,7 @@ sc |>
   theme_minimal()
 ```
 
-An explanation for this is that while Democrats are more inclined to regulate the technology industry, there is a heavy technology lobbying presence in the state, making it harder to pass bills. Both New York and California are known for their technology industry, whose presence may lead to more lobbying in the states against bills.
+A plausible explanation for this is that while Democrats are more inclined to regulate the technology industry, there is a heavy technology lobbying presence in the state, making it harder to pass bills. Both New York and California are known for their technology industry, whose presence may lead to more lobbying in the states against bills.
 
 ## Large States and Small States
 
@@ -246,7 +250,7 @@ The data set only analyzed the partisan control of state legislators, not the in
 
 # Conclusion
 
-Federal regulation may prove to be more effective at both creating safer social media platforms, alongside offering a more streamlined system for child safety and wellness online. However, given the unknown stance of the incoming Republican-controlled federal government on social media regulation, state governments may be the only venue for social media regulation.
+Federal regulation may prove to be more effective at both creating safer social media platforms, alongside offering a more streamlined system for child safety and wellness online. However, given the unknown stance of the incoming Republican-controlled federal government on social media regulation, state governments may be the only avenue for social media regulation.
 
 {{< pagebreak >}}
 
