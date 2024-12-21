@@ -22,7 +22,7 @@ bibliography: references.yaml
 
 # Abstract
 
-Over the past year, political sentiment has pushed states to regulate social media use for children in the United State. We analyze 300 bills introduced by US state legislators in 2024. We find that while Democratic- and Republican-controlled legislators both introduced legislation related to social media, Republican-controlled state legislatures were more likely to enact such regulation.
+Over the past year, political sentiment has pushed states to regulate social media use for children in the United State. We analyze 300 bills introduced by US state legislatures in 2024. We find that while Democratic- and Republican-controlled legislatures both introduced legislation related to social media, Republican-controlled state legislatures were more likely to enact such regulation.
 
 ```{r}
 #| label: add-library
@@ -234,7 +234,7 @@ A plausible explanation for this is that while Democrats are more inclined to re
 
 ## Large States and Small States
 
-With the exception of Florida, most states that have passed legislation regulating social media have medium to low populations. This suggests two possibilities. First, large states may have larger state legislators, which leads to more deliberation, halting the passage of legislation. Second, technology companies may also be more inclined to intensely lobby in states with large populations. A larger state means a larger user base will be affected by new regulations. As a result, companies may put more effort into stalling the passage of social media legislation in larger states.
+With the exception of Florida, most states that have passed legislation regulating social media have medium to low populations. This suggests two possibilities. First, large states may have larger state legislatures, which leads to more deliberation, halting the passage of legislation. Second, technology companies may also be more inclined to intensely lobby in states with large populations. A larger state means a larger user base will be affected by new regulations. As a result, companies may put more effort into stalling the passage of social media legislation in larger states.
 
 ## Implications
 
@@ -246,7 +246,7 @@ State governments may continue to push for bills to regulate social media. This 
 
 The analysis only includes data from the beginning of 2024 through October 2024. Since the beginning of October, states may have passed new legislation changing the status of these legislation. Further, states have passed legislation before 2024. A future area of inquiry may consider the trends in state legislation of children and social media over the past few years.
 
-The data set only analyzed the partisan control of state legislators, not the individual political affiliations of those sponsoring each bill. Future analysis in the political affiliations of those sponsoring the bills may provide better insight into the relationship between partisanship and sponsoring of child safety legislation.
+The data set only analyzed the partisan control of state legislatures, not the individual political affiliations of those sponsoring each bill. Future analysis in the political affiliations of those sponsoring the bills may provide better insight into the relationship between partisanship and sponsoring of child safety legislation.
 
 # Conclusion
 
