@@ -5,7 +5,7 @@ author:
     affiliations:
       - SPRING Program on Health and Society
       - Duke University
-  - name: Khadija Mohammad
+  - name: Khadija Mohammed
     affiliations:
       - SPRING Program on Health and Society
   - name: Arik Karim
